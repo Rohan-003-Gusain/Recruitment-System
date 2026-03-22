@@ -2,6 +2,7 @@ package com.recruitment.controller;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -58,14 +59,18 @@ public class JobController {
 	}
 	
 	// ========== UPLOAD RESUME ==========
-	@PostMapping("/uploadResume")
-	public ResponseEntity<ProfileResponseDTO> uploadResume(@RequestParam("file") MultipartFile file) {
+	@PostMapping(
+	        value = "/uploadResume",
+	        consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+	)
+	public ResponseEntity<ProfileResponseDTO> uploadResume(
+	        @RequestParam("file") MultipartFile file) {
 
 	    return ResponseEntity.ok(
-	    		profileMapper.toProfileResponseDTO(
-	    				profileService.saveResume(file)
-	    			)
-	    	);
+	            profileMapper.toProfileResponseDTO(
+	                    profileService.saveResume(file)
+	            )
+	    );
 	}
 
 }
