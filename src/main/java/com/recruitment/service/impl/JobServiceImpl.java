@@ -1,6 +1,7 @@
-package com.recruitment.service;
+package com.recruitment.service.impl;
 
 import java.time.LocalDateTime;
+
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
@@ -15,6 +16,8 @@ import com.recruitment.model.User;
 import com.recruitment.model.UserType;
 import com.recruitment.repository.JobRepository;
 import com.recruitment.repository.UserRepository;
+import com.recruitment.service.JobService;
+
 @Service
 public class JobServiceImpl implements JobService {
 

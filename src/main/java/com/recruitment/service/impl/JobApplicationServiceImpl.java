@@ -1,13 +1,15 @@
-package com.recruitment.service;
+package com.recruitment.service.impl;
 
 import java.time.LocalDateTime;
+
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.recruitment.exception.BadRequestException;
 import com.recruitment.exception.ResourceNotFoundException;
 import com.recruitment.exception.UnauthorizedException;
+import com.recruitment.exception.BadRequestException;
 import com.recruitment.model.Job;
 import com.recruitment.model.JobApplication;
 import com.recruitment.model.User;
@@ -15,6 +17,7 @@ import com.recruitment.model.UserType;
 import com.recruitment.repository.JobApplicationRepository;
 import com.recruitment.repository.JobRepository;
 import com.recruitment.repository.UserRepository;
+import com.recruitment.service.JobApplicationService;
 
 import lombok.RequiredArgsConstructor;
 @Service

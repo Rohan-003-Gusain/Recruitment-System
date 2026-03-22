@@ -1,4 +1,4 @@
-package com.recruitment.service;
+package com.recruitment.service.impl;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,12 +11,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.recruitment.exception.BadRequestException;
 import com.recruitment.exception.ResourceNotFoundException;
+import com.recruitment.exception.BadRequestException;
 import com.recruitment.model.Profile;
 import com.recruitment.model.User;
 import com.recruitment.repository.ProfileRepository;
 import com.recruitment.repository.UserRepository;
+import com.recruitment.service.ProfileService;
+import com.recruitment.service.ResumeParserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -73,7 +75,7 @@ public class ProfileServiceImpl implements ProfileService{
 		try {
 			resumeParserService.fillProfileFromResume(file, profile);
 		} catch (IOException e) {
-			throw new RuntimeException("Resume parsing failed");
+			System.out.println("Resume parsing failed: " + e.getMessage());
 		}
 		
 		if (profile.getName() == null || profile.getName().isBlank()) {

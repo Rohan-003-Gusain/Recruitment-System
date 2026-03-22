@@ -1,17 +1,19 @@
-package com.recruitment.service;
+package com.recruitment.service.impl;
 
 import java.util.List;
+
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.recruitment.config.JwtUtil;
 import com.recruitment.exception.ConflictException;
 import com.recruitment.exception.ResourceNotFoundException;
 import com.recruitment.exception.UnauthorizedException;
+import com.recruitment.config.JwtUtil;
 import com.recruitment.model.User;
 import com.recruitment.model.UserType;
 import com.recruitment.repository.UserRepository;
+import com.recruitment.service.UserService;
 @Service
 public class UserServiceImpl implements UserService{
 

@@ -12,17 +12,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.recruitment.service.UserDetailsServiceImpl;
+import com.recruitment.service.impl.UserDetailsServiceImpl;
+
 
 @EnableMethodSecurity
 @Configuration
 public class SpringSecurity {
 
-    private final UserDetailsServiceImpl userDetailsService;
+    private final UserDetailsServiceImpl userDetailsServiceImpl;
     private final JwtFilter jwtFilter;
     
     public SpringSecurity(UserDetailsServiceImpl userDetailsServiceImpl, JwtFilter jwtFilter) {
-    	this.userDetailsService = userDetailsServiceImpl;
+    	this.userDetailsServiceImpl = userDetailsServiceImpl;
     	this.jwtFilter = jwtFilter;
     }
 
@@ -43,6 +44,12 @@ public class SpringSecurity {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+            		
+            		.requestMatchers(
+            		        "/v3/api-docs/**",
+            		        "/swagger-ui/**",
+            		        "/swagger-ui.html"
+            		).permitAll()
                 .requestMatchers("/signup", "/login").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/jobs/uploadResume").hasRole("APPLICANT")
@@ -50,7 +57,7 @@ public class SpringSecurity {
                 .requestMatchers("/jobs/**").authenticated()
                 .anyRequest().authenticated()
             )
-            .userDetailsService(userDetailsService)
+            .userDetailsService(userDetailsServiceImpl)
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

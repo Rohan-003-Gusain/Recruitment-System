@@ -1,4 +1,4 @@
-package com.recruitment.service;
+package com.recruitment.service.impl;
 
 import java.util.Collections;
 
