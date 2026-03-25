@@ -1,5 +1,13 @@
 # Recruitment System – Spring Boot REST Backend
 
+---
+
+## 🌍 Live API Documentation
+
+👉 [Open Swagger UI](https://recruitment-system-backend-service.onrender.com/swagger-ui/index.html)
+
+---
+
 ## Objective
 
 The **Recruitment Management System** is a RESTful backend application built using **Spring Boot**. 
@@ -16,13 +24,13 @@ This project follows **clean architecture principles** using DTOs, mappers, laye
 - **Language:** Java
 - **Framework:** Spring Boot
 - **Security:** Spring Security + JWT Authentication 
-- **Database:** MySQL
+- **Database:** PostgreSQL
 - **ORM:** JPA / Hibernate
 - **Build Tool:** Maven
 - **API Client:** Postman
 - **Mapping:** DTO ↔ Entity Mapper (ModelMapper / Manual Mapper)
 - **Validation:** Jakarta Bean Validation 
-- **Architecture:** Controller -> Service -> Repository
+- **Architecture:** Architecture: Client → Controller → Service → Repository → PostgreSQL
 - **DTO Mapping:** Manual DTO <-> Entity Mappers
 
 ---
