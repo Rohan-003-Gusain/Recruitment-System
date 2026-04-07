@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="RecruitmentSuite">
+    <test name="All Tests">
+        <classes>
+            <class name="com.recruitment.tests.AuthTest"/>
+            <class name="com.recruitment.tests.AdminTest"/>
+            <class name="com.recruitment.tests.JobTest"/>
+        </classes>
+    </test>
+</suite>
