@@ -110,6 +110,11 @@
 		    <scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.finance</groupId>
+			<artifactId>finanace-backend-system</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

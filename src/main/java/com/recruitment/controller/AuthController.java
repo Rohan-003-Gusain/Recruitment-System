@@ -11,6 +11,8 @@ import com.recruitment.dto.LoginRequestDTO;
 import com.recruitment.dto.SignupRequestDTO;
 import com.recruitment.service.UserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping()
 public class AuthController {
@@ -19,6 +21,10 @@ public class AuthController {
 	private UserService userService;
 	
 	// ========== SIGNUP ==========
+	@Operation(
+		    summary = "User Signup",
+		    description = "Register a new user as ADMIN or APPLICANT"
+		)
 	@PostMapping("/signup")
 	public ResponseEntity<?> signup(@RequestBody SignupRequestDTO dto) {
 		return ResponseEntity.ok(userService.createUser(dto.toUser()));
