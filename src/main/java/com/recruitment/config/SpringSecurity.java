@@ -49,7 +49,8 @@ public class SpringSecurity {
             				"/",
             		        "/v3/api-docs/**",
             		        "/swagger-ui/**",
-            		        "/swagger-ui.html"
+            		        "/swagger-ui.html",
+            		        "/ping"
             		).permitAll()
                 .requestMatchers("/signup", "/login").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
